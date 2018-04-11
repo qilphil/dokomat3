@@ -17,8 +17,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
+    compileSdkVersion 'android-P'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId 'com.example.android.persistence'
@@ -46,8 +46,8 @@ android {
     }
 
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -57,25 +57,21 @@ dependencies {
     implementation deps.support.v4
     implementation deps.support.design
     implementation deps.support.cardview
-
     // Architecture components
     implementation deps.lifecycle.runtime
     implementation deps.lifecycle.extensions
     annotationProcessor deps.lifecycle.compiler
     implementation deps.room.runtime
     annotationProcessor deps.room.compiler
-
     // Android Testing Support Library's runner and rules
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
     androidTestImplementation deps.room.testing
     androidTestImplementation deps.arch_core.testing
-
     // Espresso UI Testing
     androidTestImplementation deps.espresso.core
     androidTestImplementation deps.espresso.contrib
     androidTestImplementation deps.espresso.intents
-
     // Resolve conflicts between main and test APK:
     androidTestImplementation deps.support.annotations
     androidTestImplementation deps.support.v4
